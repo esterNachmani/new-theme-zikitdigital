@@ -1858,6 +1858,7 @@ h2.wc-block-mini-cart__title {
   color: #000000 !important;
   font-size: 30px !important;
   font-weight: 600 !important;
+  display: flex;
 }
 
 .woocommerce div.product .product_title {
@@ -1880,6 +1881,8 @@ h2.wc-block-mini-cart__title {
 
 .woocommerce-Price-amount bdi {
   direction: rtl;
+  display: flex;
+  flex-direction: row;
 }
 
 .single_add_to_cart_button {
@@ -1929,6 +1932,7 @@ input[type=number] {
 .woocommerce-price-suffix {
   font-size: 60%;
   display: block;
+  margin: 10px;
 }
 
 .woocommerce div.product .stock {

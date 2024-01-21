@@ -417,16 +417,28 @@ function njengah_custom_stock_text( $availability, $_product )
         }
         //variation product
         $formatted_date = date( 'd/m/Y', strtotime( $date_stock ) );
+
+        //Checking if the date has passed
+        $current_date = new DateTime();
+        $today_date = $current_date->format('Y-m-d');
+
+        $expiration_date = new DateTime($date_stock);
+        $back_stock_date = $expiration_date->format('Y-m-d');
+
+
         if($date_stock) {
+            if ($today_date < $back_stock_date) {
+
                 //$new_date = implode(" ", $date_stock);
                 $availability['availability'] = ' לא במלאי. תאריך צפוי לחזרה למלאי '. $formatted_date;
             }
+            else{
+                $availability['availability'] =' זמין במלאי ';
+            }
         }
-    else{
-        $availability['availability'] =' זמין במלאי ';
-    }
     return $availability;
 }
+    }
 
 //code of roi  - login
 
