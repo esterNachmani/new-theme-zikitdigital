@@ -417,23 +417,11 @@ function njengah_custom_stock_text( $availability, $_product )
         }
         //variation product
         $formatted_date = date( 'd/m/Y', strtotime( $date_stock ) );
-
-        //Checking if the date has passed
-        $current_date = new DateTime();
-        $today_date = $current_date->format('Y-m-d');
-
-        $expiration_date = new DateTime($date_stock);
-        $back_stock_date = $expiration_date->format('Y-m-d');
-
         if($date_stock) {
-            if ($today_date < $back_stock_date) {
                 //$new_date = implode(" ", $date_stock);
                 $availability['availability'] = ' לא במלאי. תאריך צפוי לחזרה למלאי '. $formatted_date;
-            } else {
-                $availability['availability'] = ' לא במלאי ';
             }
         }
-    }
     else{
         $availability['availability'] =' זמין במלאי ';
     }
@@ -873,7 +861,7 @@ function ql_woocommerce_ajax_add_to_cart() {
 
  //Add custom price to cart item data
 
-/*add_filter( 'woocommerce_add_cart_item_data', 'add_custom_price_to_cart_item_data', 10, 2 );
+add_filter( 'woocommerce_add_cart_item_data', 'add_custom_price_to_cart_item_data', 10, 2 );
 function add_custom_price_to_cart_item_data( $cart_item_data, $product_id ) {
 //    $random_number = rand(1000, 10000) / 100; // Generates a random number between 10 and 100 with 2 decimal places
 //    $random_number_formatted = number_format($random_number, 2); // Formats the random number to 2 decimal places
@@ -893,7 +881,7 @@ function add_custom_price_to_cart_item_data( $cart_item_data, $product_id ) {
    }
     return $cart_item_data;
 
-}*/
+}
 
 
 // Add custom price to cart item
@@ -952,10 +940,6 @@ function add_custom_price_to_cart_fragments( $fragments ) {
     return $fragments;
 }
 
-
-
-
-
 add_filter('woocommerce_calculated_total', 'round_cart_total', 9999, 2);
 function round_cart_total($total, $cart) {
     // Round the total to the nearest whole number
@@ -977,4 +961,7 @@ add_filter('wdp_calculate_totals_hook_priority', function($priority){return PHP_
 
 
 add_filter('adp_is_to_compensate_trd_party_adj_for_fixed_price', '__return_false');
+
+
+
 

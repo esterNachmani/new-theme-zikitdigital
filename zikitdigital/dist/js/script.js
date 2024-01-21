@@ -1,5 +1,6 @@
 
 $ = jQuery.noConflict(true);
+
 $(".wc-block-product-categories-list--depth-0").addClass('product-categories');
 $(".wc-block-product-categories-list-item").addClass('cat-item');
 $(".wc-block-product-categories-list--depth-1").addClass('children');
@@ -71,11 +72,11 @@ function closeNav() {
 //to add video in the product page. width="560" height="315"
 jQuery(document).ready(function($) {
     var myVideo = document.getElementById("myvideo");
-    var srcVideo = ""; // Initialize srcVideo variable
     if(myVideo){
-        srcVideo = myVideo.dataset['video'];
+    srcVideo = myVideo.dataset['video'];
+
     }
-    if(srcVideo !== "")
+    if(srcVideo!= "")
     {
         console.log(srcVideo);
 

@@ -1880,8 +1880,6 @@ h2.wc-block-mini-cart__title {
 
 .woocommerce-Price-amount bdi {
   direction: rtl;
-  display: flex;
-  flex-direction: row;
 }
 
 .single_add_to_cart_button {
